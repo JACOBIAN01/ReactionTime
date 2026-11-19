@@ -4,16 +4,14 @@ import { StatusBar } from 'expo-status-bar';
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-type State = 'idle' | 'waiting' | 'go' | 'done' | 'early';
-
 const COLORS = { idle: '#2b6cb0', waiting: '#c53030', go: '#2f855a', done: '#2b6cb0', early: '#dd6b20' };
 
 export default function App() {
-  const [state, setState] = useState<State>('idle');
+  const [state, setState] = useState('idle');
   const [time, setTime] = useState(0);
-  const [best, setBest] = useState<number | null>(null);
+  const [best, setBest] = useState(null);
   const start = useRef(0);
-  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const timer = useRef(null);
 
   // Load best score saved on the device
   useEffect(() => {
