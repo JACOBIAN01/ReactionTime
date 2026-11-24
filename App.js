@@ -13,7 +13,6 @@ export default function App() {
   const start = useRef(0);
   const timer = useRef(null);
 
-  // Load best score saved on the device
   useEffect(() => {
     AsyncStorage.getItem('best').then((v) => v && setBest(Number(v)));
   }, []);
